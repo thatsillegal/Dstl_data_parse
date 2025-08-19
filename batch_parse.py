@@ -71,7 +71,7 @@ for IM_ID in IM_IDS:
 
     # Check that image and mask are aligned. Image:
     pic_show_uint8 = (255 * tools.scale_percentile(im_rgb)).astype(np.uint8)
-    mask_show = 255 * np.stack([train_mask,train_mask,train_mask]).transpose([1,2,0]).astype(np.uint8)
+    mask_show = (255 * np.stack([train_mask,train_mask,train_mask]).transpose([1,2,0])).astype(np.uint8)
 
     # 确保通道顺序正确
     if pic_show_uint8.ndim == 3 and pic_show_uint8.shape[2] == 3:
