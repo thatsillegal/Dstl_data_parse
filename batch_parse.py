@@ -9,28 +9,28 @@ import tools
 
 # 设置 CSV 文件中单个字段允许的最大长度（字节数）
 csv.field_size_limit(2**31 - 1);
-base_path = r"D:\OneDrive\工作\青研社课题\数据集\dstl-satellite-imagery-feature-detection"
+base_path = r"/Users/bruno/PycharmProjects/Dstl_data_parse" # TODO 修改为自己的根目录
 POLY_TYPE = '1'  # buildings
 
 # 获取文件夹中所有的文件并去除后缀
-img_folder = os.path.join(base_path,"three_band","three_band")
+img_folder = os.path.join(base_path,"three_band") # TODO 修改为自己的目录
 imgs = os.listdir(img_folder)
 IM_IDS = [os.path.splitext(img)[0] for img in imgs]
 
 # 创建一个目标文件夹（已存在不会报错）
-output_folder = os.path.join(base_path,"three_band","output_folder")
-images_folder = os.path.join(output_folder,"images")
+output_folder = os.path.join(base_path,"output_folder") # TODO 修改为自己的目录
+images_folder = os.path.join(output_folder,"images") # TODO 修改为自己的目录
 os.makedirs(output_folder,exist_ok=True)
 os.makedirs(images_folder,exist_ok=True)
 
 x_max, y_min = None, None
-csv1_path = os.path.join(base_path, "grid_sizes.csv", "grid_sizes.csv")
-csv2_path = os.path.join(base_path, "train_wkt_v4.csv", "train_wkt_v4.csv")
+csv1_path = os.path.join(base_path, "grid_sizes.csv") # TODO 修改为自己的目录
+csv2_path = os.path.join(base_path, "train_wkt_v4.csv") # TODO 修改为自己的目录
 
 # 保存完整的图像
 for IM_ID in IM_IDS:
 
-    pic_path = os.path.join(base_path,"three_band","three_band",IM_ID + ".tif")
+    pic_path = os.path.join(img_folder,IM_ID + ".tif")
     image_output_path = os.path.join(images_folder,IM_ID + ".png")
     mask_output_path = os.path.join(images_folder,IM_ID + "_MASK.png")
 

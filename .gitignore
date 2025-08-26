@@ -3,6 +3,7 @@ three_band/
 .idea/
 __pycache__/
 .DS_Store
+output_folder/
 # 文件类型
 *.zip
 *.pyc
