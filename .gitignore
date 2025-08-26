@@ -1,5 +1,9 @@
 # 文件夹
 three_band/
+.idea/
+__pycache__/
+.DS_Store
 # 文件类型
 *.zip
-# 具体文件
+*.pyc
+# 具体文件m
