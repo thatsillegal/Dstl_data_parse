@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="D:\ProgramData\anaconda3\envs\pic_parse" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="D:\ProgramData\anaconda3\envs\pic_parse" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="pic_parse" project-jdk-type="Python SDK" />
 </project>
