@@ -9,5 +9,5 @@ if __name__ == '__main__':
     output_dir = os.path.join(base_path, "output_folder", "tiles") # TODO 修改为自己的目录
     os.makedirs(output_dir, exist_ok=True)
 
-    scales = [0.5,1.0,1.5,2.0]
+    scales = [0.5,1.0,1.5,2.0] # TODO 此处的放大倍数可以自己输入，数组数量越多，产生的图片越多
     tools.process_folder(input_dir, output_dir,tile_size=500, scales=scales)

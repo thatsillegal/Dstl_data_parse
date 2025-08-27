@@ -8,7 +8,7 @@ import tifffile as tiff
 import tools
 
 # 设置 CSV 文件中单个字段允许的最大长度（字节数）
-csv.field_size_limit(2**31 - 1);
+csv.field_size_limit(2**31 - 1)
 base_path = r"/Users/bruno/PycharmProjects/Dstl_data_parse" # TODO 修改为自己的根目录
 POLY_TYPE = '1'  # buildings
 
@@ -70,13 +70,14 @@ for IM_ID in IM_IDS:
 
     # Check that image and mask are aligned. Image:
     pic_show_uint8 = (255 * tools.scale_percentile(im_rgb)).astype(np.uint8)
+    # np.stack 会在一个新的维度上把多个数组拼起来，如果 train_mask 的 shape 是 (H, W)，那么结果 shape 会是 (3, H, W)
     mask_show = (255 * np.stack([train_mask,train_mask,train_mask]).transpose([1,2,0])).astype(np.uint8)
 
-    # 确保通道顺序正确
+    # 确保通道顺序正确（维度为3且第三个维度（通道维度）数量为3）
     if pic_show_uint8.ndim == 3 and pic_show_uint8.shape[2] == 3:
         pic_show_uint8 = cv2.cvtColor(pic_show_uint8, cv2.COLOR_RGB2BGR)
 
-    # 确保 mask 是二维
+    # 确保 mask 是二维，squeeze 删除数组中长度为 1 的维度
     if mask_show.ndim == 3 and mask_show.shape[2] == 1:
         mask_show = np.squeeze(mask_show, axis=2)
 
